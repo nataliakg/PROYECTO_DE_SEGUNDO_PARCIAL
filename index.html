@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="buscador.js" defer></script>
     <title>Tienda de Maquillaje</title>
 </head>
 <body>
@@ -19,6 +20,19 @@
         <a href="Terminos_condiciones.html">Términos y condiciones</a>
     </header>
     <main id="catalogo">
+        <div class="buscador" role="search">
+            <label for="buscar-producto">Buscar producto</label>
+            <div class="buscador-controles">
+                <input
+                    type="search"
+                    id="buscar-producto"
+                    placeholder="Escribe el nombre del producto"
+                    autocomplete="off"
+                >
+                <button type="button" id="limpiar-busqueda">Limpiar</button>
+            </div>
+            <p id="resultado-busqueda" aria-live="polite"></p>
+        </div>
         <section class="galeria" aria-label="Catálogo de maquillaje">
         <div class="productos">
             <img src="Imagenes/1.jpeg" alt="Labial rojo líquido">
