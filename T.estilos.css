@@ -329,3 +329,100 @@ body {
         transition: none;
     }
 }
+
+/* Adaptación universal de la página de términos */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    min-width: 280px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+.encabezado,
+.informacion,
+.bienvenida,
+.tarjeta,
+.despedida {
+    max-width: 100%;
+}
+
+.encabezado nav {
+    min-width: 0;
+}
+
+.encabezado nav a,
+.marca {
+    overflow-wrap: anywhere;
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+    .encabezado {
+        flex-wrap: wrap;
+    }
+
+    .encabezado nav {
+        width: 100%;
+    }
+}
+
+@media (max-width: 760px) {
+    .encabezado {
+        width: 100%;
+        gap: 14px;
+    }
+
+    .encabezado .marca {
+        width: 100%;
+    }
+
+    .encabezado h1 {
+        font-size: clamp(1.35rem, 7vw, 2rem);
+    }
+
+    .encabezado .marca img {
+        width: 58px;
+        height: 58px;
+        flex: 0 0 58px;
+    }
+
+    .encabezado nav {
+        width: 100%;
+    }
+
+    .encabezado nav ul {
+        width: 100%;
+    }
+
+    .linea-metro p {
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 480px) {
+    .informacion {
+        width: calc(100% - 20px);
+    }
+
+    .bienvenida,
+    .tarjeta {
+        margin-bottom: 14px;
+    }
+
+    .encabezado nav ul {
+        flex-direction: column;
+    }
+
+    .encabezado nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .reglas li {
+        font-size: 0.92rem;
+    }
+}

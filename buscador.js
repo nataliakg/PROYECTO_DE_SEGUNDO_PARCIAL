@@ -6,6 +6,14 @@ const resultadoBusqueda = document.getElementById("resultado-busqueda");
 const filtroDisponibilidad = document.getElementById("filtro-disponibilidad");
 const productos = Array.from(document.querySelectorAll(".productos"));
 
+productos.forEach((producto) => {
+    const imagen = producto.querySelector("img");
+    if (imagen) {
+        imagen.loading = "lazy";
+        imagen.decoding = "async";
+    }
+});
+
 if (!entradaBusqueda || !botonLimpiar || !resultadoBusqueda || !filtroDisponibilidad) {
     throw new Error("No se encontraron los elementos del buscador.");
 }

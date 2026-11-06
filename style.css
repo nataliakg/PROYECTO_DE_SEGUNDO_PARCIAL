@@ -1488,3 +1488,218 @@ body::after {
         display: none;
     }
 }
+
+/* Adaptación universal para celular, tablet, laptop y escritorio */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    min-width: 280px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+.encabezado,
+.buscador,
+.aviso-catalogo,
+.titulo-catalogo,
+.galeria,
+.REDES_SOCIALES {
+    max-width: 100%;
+}
+
+.encabezado {
+    width: 100%;
+}
+
+.encabezado nav {
+    min-width: 0;
+}
+
+.encabezado nav ul {
+    justify-content: center;
+}
+
+.buscador input,
+.buscador select,
+.buscador button,
+.productos,
+.red-social {
+    max-width: 100%;
+}
+
+.productos img {
+    display: block;
+}
+
+@media (min-width: 1400px) {
+    .galeria {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        width: min(1320px, calc(100% - 64px));
+    }
+
+    .buscador,
+    .aviso-catalogo {
+        width: min(820px, calc(100% - 64px));
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1399px) {
+    .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .encabezado {
+        flex-wrap: wrap;
+        align-items: center;
+        padding-inline: clamp(14px, 4vw, 32px);
+    }
+
+    .encabezado nav {
+        width: 100%;
+        order: 3;
+    }
+
+    .encabezado nav ul {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .redes-lista {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .encabezado {
+        gap: 12px;
+        min-height: 0;
+    }
+
+    .encabezado .marca {
+        width: calc(100% - 12px);
+    }
+
+    .encabezado h1 {
+        font-size: clamp(1.25rem, 6vw, 1.8rem);
+        line-height: 1.05;
+    }
+
+    .encabezado .marca img {
+        width: 58px;
+        height: 58px;
+        flex: 0 0 58px;
+    }
+
+    .encabezado nav ul {
+        gap: 6px;
+    }
+
+    .encabezado nav a,
+    .encabezado > a:not(.marca) {
+        font-size: 0.82rem;
+    }
+
+    .buscador,
+    .aviso-catalogo,
+    .titulo-catalogo,
+    .galeria {
+        width: calc(100% - 24px);
+    }
+
+    .buscador {
+        padding: 16px 12px;
+    }
+
+    .buscador-controles {
+        gap: 8px;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .productos img {
+        height: clamp(150px, 46vw, 210px);
+    }
+
+    .productos h2 {
+        min-height: 48px;
+        font-size: clamp(0.88rem, 4vw, 1rem);
+    }
+
+    .inventario {
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .encabezado nav a {
+        padding-inline: 10px;
+    }
+
+    .encabezado > a:not(.marca) {
+        box-sizing: border-box;
+        min-width: 0;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .productos {
+        border-radius: 14px;
+    }
+
+    .productos img {
+        height: clamp(135px, 42vw, 180px);
+    }
+
+    .productos h2 {
+        min-height: 44px;
+        margin-inline: 7px;
+    }
+
+    .inventario {
+        margin-inline: 7px;
+        padding-inline: 5px;
+    }
+
+    .redes-lista {
+        grid-template-columns: 1fr;
+    }
+
+    .REDES_SOCIALES {
+        padding-inline: 12px;
+    }
+
+    .red-social {
+        min-height: 88px;
+    }
+}
+
+@media (max-width: 340px) {
+    .galeria {
+        grid-template-columns: 1fr;
+        width: calc(100% - 20px);
+    }
+
+    .productos img {
+        height: 220px;
+    }
+
+    .encabezado nav ul {
+        flex-direction: column;
+    }
+
+    .encabezado nav a {
+        width: 100%;
+        text-align: center;
+    }
+}
