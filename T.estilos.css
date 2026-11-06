@@ -1,0 +1,312 @@
+:root {
+    --rosa-oscuro: #982f68;
+    --rosa-fuerte: #c95589;
+    --rosa-medio: #e99aba;
+    --rosa-claro: #fbe8f1;
+    --rosa-suave: #fff8fb;
+    --vino: #682343;
+    --texto: #4b3040;
+    --borde: #ecc0d3;
+    --sombra: rgba(129, 48, 91, 0.16);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--texto);
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at top left, rgba(239, 160, 194, 0.38), transparent 28rem),
+        linear-gradient(180deg, var(--rosa-suave) 0%, #fff 520px);
+}
+
+.encabezado {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 110px;
+    padding: 20px clamp(16px, 5vw, 64px);
+    color: #fff;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(255, 230, 241, 0.22), transparent 15rem),
+        linear-gradient(120deg, var(--vino), var(--rosa-oscuro), var(--rosa-fuerte));
+    box-shadow: 0 10px 30px rgba(104, 35, 67, 0.20);
+}
+
+.encabezado::after {
+    content: "";
+    position: absolute;
+    right: clamp(16px, 6vw, 70px);
+    bottom: 14px;
+    width: 90px;
+    height: 3px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.48);
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    line-height: 1.1;
+}
+
+.encabezado nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.encabezado a {
+    display: inline-block;
+    padding: 10px 14px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 0.92rem;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 999px;
+    transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.encabezado a:hover,
+.encabezado a:focus-visible {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+.encabezado a:focus-visible {
+    outline: 3px solid #fff1f7;
+    outline-offset: 3px;
+}
+
+.informacion {
+    width: min(980px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 38px 0 48px;
+}
+
+.bienvenida,
+.tarjeta {
+    margin-bottom: 22px;
+    border: 1px solid var(--borde);
+    border-radius: 22px;
+    box-shadow: 0 12px 30px var(--sombra);
+}
+
+.bienvenida {
+    position: relative;
+    overflow: hidden;
+    padding: 26px 30px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(252, 232, 242, 0.95));
+}
+
+.bienvenida::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: -105px;
+    right: -60px;
+    border-radius: 50%;
+    background: rgba(220, 108, 158, 0.12);
+    box-shadow: 0 0 0 20px rgba(220, 108, 158, 0.06);
+}
+
+.bienvenida h2 {
+    margin: 0 0 10px;
+    color: var(--rosa-oscuro);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.bienvenida p {
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.tarjeta {
+    padding: 24px 28px;
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.tarjeta h2 {
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    color: var(--vino);
+    border-bottom: 2px solid var(--rosa-claro);
+}
+
+.reglas ol {
+    margin: 0;
+    padding-left: 24px;
+}
+
+.reglas li {
+    margin-bottom: 12px;
+    padding: 12px 14px 12px 42px;
+    line-height: 1.55;
+    position: relative;
+    list-style: none;
+    background: var(--rosa-suave);
+    border-left: 4px solid var(--rosa-medio);
+    border-radius: 12px;
+    counter-increment: reglas;
+}
+
+.reglas ol {
+    counter-reset: reglas;
+}
+
+.reglas li::before {
+    content: counter(reglas);
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    width: 22px;
+    height: 22px;
+    color: #fff;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: bold;
+    line-height: 22px;
+    border-radius: 50%;
+    background: var(--rosa-fuerte);
+}
+
+.tarjeta ul {
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+.tarjeta ul li {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.puntos-entrega {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.puntos-entrega article,
+.linea-metro {
+    padding: 16px;
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--rosa-suave), var(--rosa-claro));
+}
+
+.puntos-entrega h3,
+.linea-metro h3 {
+    margin: 0 0 8px;
+    color: var(--rosa-oscuro);
+}
+
+.puntos-entrega p,
+.linea-metro p {
+    margin: 5px 0;
+    line-height: 1.55;
+}
+
+.linea-metro {
+    margin-top: 12px;
+}
+
+.minima {
+    text-align: center;
+    background: linear-gradient(135deg, #fff, var(--rosa-claro));
+}
+
+.minima strong {
+    color: var(--rosa-oscuro);
+    font-size: 1.05rem;
+}
+
+.despedida {
+    margin: 30px auto 0;
+    padding: 18px;
+    color: var(--vino);
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: bold;
+    background: var(--rosa-claro);
+    border-radius: 999px;
+}
+
+@media (max-width: 760px) {
+    .encabezado {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 16px 24px;
+    }
+
+    .encabezado nav ul {
+        justify-content: flex-start;
+    }
+
+    .encabezado::after {
+        right: 16px;
+    }
+
+    .informacion {
+        width: min(100% - 24px, 980px);
+        padding-top: 24px;
+    }
+
+    .bienvenida,
+    .tarjeta {
+        border-radius: 16px;
+    }
+
+    .bienvenida {
+        padding: 22px 18px;
+    }
+
+    .tarjeta {
+        padding: 20px 16px;
+    }
+
+    .puntos-entrega {
+        grid-template-columns: 1fr;
+    }
+
+    .reglas ol {
+        padding-left: 0;
+    }
+
+    .reglas li {
+        padding-right: 10px;
+    }
+
+    .despedida {
+        border-radius: 16px;
+        line-height: 1.5;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .encabezado a {
+        transition: none;
+    }
+}
