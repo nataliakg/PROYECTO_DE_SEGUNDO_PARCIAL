@@ -329,6 +329,16 @@ img {
     box-shadow: 0 8px 24px rgba(109, 40, 75, 0.18);
 }
 
+.encabezado::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 10%, rgba(255,255,255,.55), transparent 90%);
+}
+
 .encabezado h1 {
     margin: 0;
     font-size: clamp(1.6rem, 4vw, 2.4rem);
@@ -392,12 +402,14 @@ main {
 .buscador {
     width: min(760px, calc(100% - 32px));
     margin: 28px auto 8px;
-    padding: 18px;
+    padding: 20px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.92);
+    position: relative;
+    background: rgba(255, 255, 255, 0.94);
     border: 1px solid var(--borde);
     border-radius: 22px;
     box-shadow: 0 12px 28px var(--sombra);
+    backdrop-filter: blur(10px);
 }
 
 .buscador label {
@@ -409,6 +421,7 @@ main {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
+    font-size: 1.08rem;
 }
 
 .buscador-controles {
@@ -477,16 +490,49 @@ main {
     border-radius: 14px;
 }
 
+.titulo-catalogo {
+    width: min(1180px, calc(100% - 32px));
+    margin: 34px auto -4px;
+    text-align: center;
+}
+
+.titulo-catalogo p {
+    margin: 0 0 4px;
+    color: var(--rosa-fuerte);
+    font-family: Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: bold;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.titulo-catalogo h2 {
+    margin: 0;
+    color: var(--vino);
+    font-size: clamp(1.6rem, 4vw, 2.35rem);
+}
+
+.titulo-catalogo h2::after {
+    content: "";
+    display: block;
+    width: 74px;
+    height: 4px;
+    margin: 10px auto 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--rosa-medio), var(--rosa-fuerte));
+}
+
 .galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 22px;
     width: min(1180px, calc(100% - 32px));
-    margin: 24px auto 0;
+    margin: 24px auto 42px;
     padding: 0;
 }
 
 .productos {
+    position: relative;
     overflow: hidden;
     min-width: 0;
     text-align: center;
@@ -497,6 +543,22 @@ main {
     transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
+.productos::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--rosa-fuerte), var(--rosa-medio), var(--rosa-claro));
+    opacity: 0;
+    transition: opacity 180ms ease;
+}
+
+.productos:hover::after {
+    opacity: 1;
+}
+
 .productos:hover {
     transform: translateY(-7px);
     border-color: var(--rosa-medio);
@@ -505,9 +567,14 @@ main {
 
 .productos img {
     width: 100%;
-    height: 220px;
+    height: 230px;
     object-fit: cover;
     border-bottom: 1px solid var(--borde);
+    transition: transform 280ms ease;
+}
+
+.productos:hover img {
+    transform: scale(1.035);
 }
 
 .productos h2 {
@@ -519,7 +586,7 @@ main {
 
 .inventario {
     margin: 0 12px 14px;
-    padding: 9px;
+    padding: 10px 9px;
     color: var(--texto);
     font-family: Arial, sans-serif;
     background: var(--rosa-claro);
@@ -529,4 +596,9 @@ main {
 .inventario p {
     margin: 4px 0;
     font-size: 0.88rem;
+}
+
+.inventario p:last-child {
+    color: var(--rosa-oscuro);
+    font-weight: bold;
 }
