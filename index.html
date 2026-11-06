@@ -29,6 +29,11 @@
                     placeholder="Escribe el nombre del producto"
                     autocomplete="off"
                 >
+                <label class="sr-only" for="filtro-disponibilidad">Filtrar por disponibilidad</label>
+                <select id="filtro-disponibilidad">
+                    <option value="todos">Todos</option>
+                    <option value="disponible">Disponibles</option>
+                </select>
                 <button type="button" id="limpiar-busqueda">Limpiar</button>
             </div>
             <p id="resultado-busqueda" aria-live="polite"></p>

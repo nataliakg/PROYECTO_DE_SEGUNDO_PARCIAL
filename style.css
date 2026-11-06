@@ -1,3 +1,29 @@
 .productos[hidden] {
     display: none !important;
 }
+
+#resultado-busqueda {
+    display: inline-block;
+    min-width: 180px;
+    margin-top: 12px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    background: #f2f2f2;
+    font-weight: bold;
+}
+
+#filtro-disponibilidad {
+    padding: 8px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
