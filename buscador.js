@@ -18,6 +18,28 @@ function normalizarTexto(texto) {
         .trim();
 }
 
+function obtenerDisponibilidad(producto) {
+    const lineasDisponibilidad = Array.from(producto.querySelectorAll(".inventario p"))
+        .map((linea) => normalizarTexto(linea.textContent));
+    const lineaDisponibilidad = lineasDisponibilidad.find((linea) =>
+        linea.startsWith("disponibilidad:")
+    );
+
+    if (!lineaDisponibilidad) {
+        return "sin-datos";
+    }
+
+    if (lineaDisponibilidad.includes("no disponible") || lineaDisponibilidad.includes("agotado")) {
+        return "no-disponible";
+    }
+
+    if (lineaDisponibilidad.includes("disponible")) {
+        return "disponible";
+    }
+
+    return "sin-datos";
+}
+
 function buscarProductos() {
     const textoBuscado = normalizarTexto(entradaBusqueda.value);
     const disponibilidadSeleccionada = filtroDisponibilidad.value;
@@ -28,16 +50,19 @@ function buscarProductos() {
         const imagen = producto.querySelector("img");
         const textoProducto = `${titulo ? titulo.textContent : ""} ${imagen ? imagen.alt : ""}`;
         const inventario = normalizarTexto(producto.querySelector(".inventario")?.textContent || "");
+        const disponibilidad = obtenerDisponibilidad(producto);
+        const estaDisponible = disponibilidad === "disponible";
+        const estaNoDisponible = disponibilidad === "no-disponible";
 
         const coincideConTexto = normalizarTexto(textoProducto).includes(textoBuscado);
         const coincideConDisponibilidad =
             disponibilidadSeleccionada === "todos" ||
             (disponibilidadSeleccionada === "disponible" &&
-                inventario.includes("disponible") &&
-                !inventario.includes("no disponible")) ||
+                estaDisponible) ||
             (disponibilidadSeleccionada === "agotado" && inventario.includes("no disponible"));
         const coincide = coincideConTexto && coincideConDisponibilidad;
-        producto.classList.toggle("producto-no-disponible", inventario.includes("no disponible"));
+        producto.classList.toggle("producto-disponible", estaDisponible);
+        producto.classList.toggle("producto-no-disponible", estaNoDisponible);
         producto.hidden = !coincide;
         producto.setAttribute("aria-hidden", String(!coincide));
 
