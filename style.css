@@ -276,6 +276,346 @@
         height: 190px;
     }
 }
+
+/* Fondo decorativo y diseño colorido adicional */
+body {
+    position: relative;
+    isolation: isolate;
+    background:
+        radial-gradient(circle at 8% 9%, rgba(255, 151, 194, 0.38) 0 80px, transparent 81px),
+        radial-gradient(circle at 92% 18%, rgba(183, 132, 235, 0.22) 0 110px, transparent 111px),
+        radial-gradient(circle at 18% 72%, rgba(255, 204, 111, 0.24) 0 90px, transparent 91px),
+        linear-gradient(135deg, #fffafd 0%, #fff2f8 48%, #f7efff 100%);
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    width: 280px;
+    height: 280px;
+    right: -120px;
+    bottom: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 111, 169, 0.25), rgba(163, 103, 232, 0.25));
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+main {
+    position: relative;
+}
+
+.encabezado {
+    background:
+        linear-gradient(115deg, rgba(255,255,255,0.10), transparent 35%),
+        linear-gradient(120deg, #6e2850, #b74478 50%, #ed7fae 78%, #9c62c7);
+    box-shadow: 0 12px 32px rgba(125, 49, 91, 0.28);
+}
+
+.encabezado::after {
+    content: "";
+    position: absolute;
+    right: 34px;
+    bottom: 8px;
+    width: 140px;
+    height: 34px;
+    opacity: 0.13;
+    border-radius: 50%;
+    border-top: 3px dotted #fff;
+}
+
+.buscador {
+    margin-top: 34px;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,240,248,0.96));
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow:
+        0 14px 30px rgba(177, 73, 125, 0.14),
+        0 0 0 4px rgba(255, 199, 225, 0.24);
+}
+
+.buscador::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 90px;
+    height: 5px;
+    transform: translate(-50%, -2px);
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff7eb3, #b879d9, #ffc45e);
+}
+
+.buscador input {
+    background: linear-gradient(90deg, #fff, #fff8fc);
+}
+
+.buscador button {
+    background: linear-gradient(135deg, #d95f98, #a84478);
+    box-shadow: 0 8px 16px rgba(168, 68, 120, 0.20);
+}
+
+.aviso-catalogo {
+    position: relative;
+    overflow: hidden;
+    border-color: #edbdd1;
+    background: linear-gradient(135deg, #fff4c9, #ffe5f1 55%, #f2e2ff);
+    box-shadow: 0 8px 20px rgba(179, 104, 156, 0.09);
+}
+
+.titulo-catalogo {
+    position: relative;
+    padding: 22px 16px 12px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(255, 228, 241, 0.68));
+    border: 1px solid rgba(232, 154, 188, 0.36);
+}
+
+.titulo-catalogo h2::after {
+    width: 110px;
+    height: 5px;
+    background: linear-gradient(90deg, #ff8cb9, #d26bb0, #a77ad4, #ffd270);
+}
+
+.productos {
+    border-width: 2px;
+    border-color: rgba(232, 154, 188, 0.65);
+    background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,246,251,.98));
+    box-shadow:
+        0 12px 24px rgba(161, 59, 115, 0.12),
+        0 4px 0 rgba(243, 186, 213, 0.34);
+}
+
+.productos:nth-child(6n + 1) { border-top-color: #ff9cc1; }
+.productos:nth-child(6n + 2) { border-top-color: #b695dc; }
+.productos:nth-child(6n + 3) { border-top-color: #ffc66d; }
+.productos:nth-child(6n + 4) { border-top-color: #7ed7c8; }
+.productos:nth-child(6n + 5) { border-top-color: #8db6ef; }
+.productos:nth-child(6n) { border-top-color: #ec8ebc; }
+
+.productos:hover {
+    border-color: #d96aa3;
+    box-shadow:
+        0 20px 38px rgba(161, 59, 115, 0.22),
+        0 6px 0 rgba(255, 169, 205, 0.28);
+}
+
+.productos::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    top: 10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 18px 0 0 rgba(255,255,255,.72), 36px 0 0 rgba(255,255,255,.42);
+    opacity: 0.9;
+}
+
+.productos h2 {
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+}
+
+.inventario {
+    background: linear-gradient(135deg, #fff0f6, #f4ecff 55%, #fff8d9);
+    border: 1px solid rgba(229, 166, 197, 0.45);
+}
+
+#resultado-busqueda {
+    background: linear-gradient(135deg, #ffe8f3, #f1e4ff);
+    color: var(--vino);
+    border: 1px solid #edc6da;
+}
+
+@media (max-width: 700px) {
+    body {
+        background:
+            radial-gradient(circle at 10% 8%, rgba(255, 151, 194, 0.30) 0 55px, transparent 56px),
+            linear-gradient(135deg, #fffafd 0%, #fff2f8 55%, #f7efff 100%);
+    }
+
+    .titulo-catalogo {
+        border-radius: 18px;
+    }
+}
+
+/* Acabado visual de la página */
+::selection {
+    color: #fff;
+    background: var(--rosa-fuerte);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--rosa-suave);
+}
+
+::-webkit-scrollbar-thumb {
+    border: 3px solid var(--rosa-suave);
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--rosa-medio), var(--rosa-oscuro), #9a66bf);
+}
+
+.encabezado .marca {
+    position: relative;
+}
+
+.encabezado .marca::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    width: 88px;
+    height: 88px;
+    transform: translateY(-50%);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.04);
+}
+
+.buscador,
+.titulo-catalogo,
+.productos,
+.aviso-catalogo {
+    animation: aparecer-suave 600ms ease both;
+}
+
+.titulo-catalogo {
+    animation-delay: 80ms;
+}
+
+.productos:nth-child(4n + 1) {
+    animation-delay: 100ms;
+}
+
+.productos:nth-child(4n + 2) {
+    animation-delay: 150ms;
+}
+
+.productos:nth-child(4n + 3) {
+    animation-delay: 200ms;
+}
+
+.productos:nth-child(4n) {
+    animation-delay: 250ms;
+}
+
+.productos::before {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    top: 12px;
+    right: 12px;
+    left: auto;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow:
+        -12px 0 0 rgba(255, 255, 255, 0.72),
+        -24px 0 0 rgba(255, 255, 255, 0.42);
+}
+
+.productos img {
+    filter: saturate(0.92) contrast(1.02);
+}
+
+.productos:hover img {
+    filter: saturate(1.08) contrast(1.04);
+}
+
+.inventario {
+    position: relative;
+}
+
+.inventario p:last-child::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background: #54b887;
+    box-shadow: 0 0 0 4px rgba(84, 184, 135, 0.12);
+}
+
+.REDES_SOCIALES::before {
+    animation: girar-suave 18s linear infinite;
+}
+
+.REDES_SOCIALES::after {
+    animation: girar-suave 24s linear reverse infinite;
+}
+
+.red-social::after {
+    content: "\2197";
+    opacity: 0;
+    transform: translate(-4px, 4px);
+}
+
+.red-social:hover::after,
+.red-social:focus-visible::after {
+    opacity: 1;
+}
+
+.red-social:focus-visible,
+.buscador input:focus-visible,
+.buscador select:focus-visible,
+.buscador button:focus-visible,
+.encabezado a:focus-visible {
+    outline: 3px solid #ffe0f0;
+    outline-offset: 3px;
+}
+
+@keyframes aparecer-suave {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes girar-suave {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .buscador,
+    .titulo-catalogo,
+    .productos,
+    .aviso-catalogo {
+        animation: none;
+    }
+
+    .productos,
+    .productos img,
+    .red-social,
+    .red-social img {
+        transition: none;
+    }
+
+    .REDES_SOCIALES::before,
+    .REDES_SOCIALES::after {
+        animation: none;
+    }
+}
 .productos[hidden] {
     display: none !important;
 }
@@ -601,4 +941,22 @@ main {
 .inventario p:last-child {
     color: var(--rosa-oscuro);
     font-weight: bold;
+}
+
+.producto-no-disponible {
+    filter: saturate(0.78);
+}
+
+.producto-no-disponible .inventario {
+    color: #7a6570;
+    background: linear-gradient(135deg, #f5edf1, #ebe4e8);
+}
+
+.producto-no-disponible .inventario p:last-child {
+    color: #9b4f70;
+}
+
+.producto-no-disponible .inventario p:last-child::before {
+    background: #bd668b;
+    box-shadow: 0 0 0 4px rgba(189, 102, 139, 0.12);
 }

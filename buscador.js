@@ -32,9 +32,12 @@ function buscarProductos() {
         const coincideConTexto = normalizarTexto(textoProducto).includes(textoBuscado);
         const coincideConDisponibilidad =
             disponibilidadSeleccionada === "todos" ||
-            (disponibilidadSeleccionada === "disponible" && inventario.includes("disponible")) ||
-            (disponibilidadSeleccionada === "agotado" && !inventario.includes("disponible"));
+            (disponibilidadSeleccionada === "disponible" &&
+                inventario.includes("disponible") &&
+                !inventario.includes("no disponible")) ||
+            (disponibilidadSeleccionada === "agotado" && inventario.includes("no disponible"));
         const coincide = coincideConTexto && coincideConDisponibilidad;
+        producto.classList.toggle("producto-no-disponible", inventario.includes("no disponible"));
         producto.hidden = !coincide;
         producto.setAttribute("aria-hidden", String(!coincide));
 
