@@ -5,6 +5,10 @@ const botonLimpiar = document.getElementById("limpiar-busqueda");
 const resultadoBusqueda = document.getElementById("resultado-busqueda");
 const productos = Array.from(document.querySelectorAll(".productos"));
 
+if (!entradaBusqueda || !botonLimpiar || !resultadoBusqueda) {
+    throw new Error("No se encontraron los elementos del buscador.");
+}
+
 function normalizarTexto(texto) {
     return texto
         .normalize("NFD")
@@ -24,6 +28,7 @@ function buscarProductos() {
 
         const coincide = normalizarTexto(textoProducto).includes(textoBuscado);
         producto.hidden = !coincide;
+        producto.setAttribute("aria-hidden", String(!coincide));
 
         if (coincide) {
             productosEncontrados += 1;
