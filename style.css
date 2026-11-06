@@ -27,3 +27,109 @@
     white-space: nowrap;
     border: 0;
 }
+
+.REDES_SOCIALES {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 32px;
+    padding: 24px 16px;
+    text-align: center;
+    background: #fff3f8;
+    border-top: 1px solid #f0c8dc;
+}
+
+.REDES_SOCIALES h2 {
+    margin: 0 0 6px;
+}
+
+.horario {
+    margin: 0 0 18px;
+    color: #555;
+}
+
+.redes-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.red-social {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    min-height: 72px;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    color: #222;
+    text-decoration: none;
+    text-align: left;
+    background: white;
+    border: 1px solid #e5c3d3;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(90, 40, 60, 0.08);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.red-social:hover,
+.red-social:focus-visible {
+    transform: translateY(-4px);
+    border-color: #bd4778;
+    box-shadow: 0 8px 18px rgba(90, 40, 60, 0.16);
+}
+
+.red-social:focus-visible {
+    outline: 3px solid #7cc4ff;
+    outline-offset: 3px;
+}
+
+.red-social img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.red-social span {
+    display: flex;
+    flex-direction: column;
+}
+
+.red-social small {
+    margin-top: 2px;
+    color: #777;
+}
+
+.red-social p {
+    margin: 0;
+    color: #555;
+    font-size: 0.85rem;
+}
+
+.red-social.facebook {
+    border-left: 5px solid #1877f2;
+}
+
+.red-social.instagram {
+    border-left: 5px solid #d62976;
+}
+
+.red-social.whatsapp {
+    border-left: 5px solid #25d366;
+}
+
+.red-social.tiktok {
+    border-left: 5px solid #111111;
+}
+
+@media (max-width: 600px) {
+    .redes-lista {
+        grid-template-columns: 1fr;
+    }
+
+    .red-social {
+        width: 100%;
+    }
+}
